@@ -1,0 +1,8 @@
+<div class="card" style="width:400px">
+   <%= image_tag(@profile.avatar_url) if @profile.avatar? %>
+  <div class="card-body">
+    <h4 class="card-title"> Nickname: <strong><%= @profile.nickname %></strong>  </h4>
+    <p class="card-text"> Country: <strong><%= @profile.country %></strong> </p>
+    <button type="button" class="btn btn-link"> <%= link_to "Edit Profile",  edit_profile_path %> </button>
+  </div>
+</div>

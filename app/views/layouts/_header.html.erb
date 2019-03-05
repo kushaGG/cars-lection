@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <li><%= link_to "Home", root_path, :class => 'navbar-brand'  %></li>
+    </div>
+    <ul class="navbar-nav">
+      <li><%= link_to new_post_path, :class => 'nav-link' do %> Add new post
+        <i class="fas fa-plus-square"></i>
+      <% end %></li>
+      <li></li>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li class="nav-link">Logged in as  <strong><%= current_user.email %></strong></li>
+        <% if current_user.profile.nil? %>
+          <%= link_to new_profile_path, :class => 'nav-link' do %> Create profile
+            <i class="fas fa-users-cog"></i>
+          <% end %>
+        <% else %>
+          <%= link_to profile_path(current_user.profile), :class => 'nav-link' do %> Edit profile
+            <i class="fas fa-users-cog"></i>
+          <% end %>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, :class => 'nav-link' do %> Logout
+          <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      <% else %>
+        <li><%= link_to new_user_registration_path, :class => 'nav-link' do %> Sign up
+            <i class="fas fa-user-plus"></i>
+        <% end %></li>
+        <li><%= link_to  new_user_session_path, :class => 'nav-link' do %>Login
+          <i class="fas fa-sign-in-alt"></i>
+        <% end %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
