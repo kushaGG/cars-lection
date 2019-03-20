@@ -1,2 +1,6 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/edit.html.erb</p>
+<h1>Edit your profile</h1>
+
+
+<%= render 'form', profile: @profile %>
+
+<%= link_to 'Back', profile_path(@profile.id) %>

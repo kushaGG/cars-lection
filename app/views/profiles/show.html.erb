@@ -1,8 +1,36 @@
-<div class="card" style="width:400px">
-   <%= image_tag(@profile.avatar_url) if @profile.avatar? %>
+<!-- <div class="card text-center" style="width:400px">
+   <%= image_tag(@profile.avatar_url)  %>
   <div class="card-body">
     <h4 class="card-title"> Nickname: <strong><%= @profile.nickname %></strong>  </h4>
     <p class="card-text"> Country: <strong><%= @profile.country %></strong> </p>
-    <button type="button" class="btn btn-link"> <%= link_to "Edit Profile",  edit_profile_path %> </button>
+      <p class="button nav-item"><%= link_to "show Profile",  profile_info_path(@profile.id), remote: true, :class => 'text-white btn btn-primary' %></p>
+    <p class="button nav-item"><%= link_to "Edit Profile",  edit_profile_path(@profile.id), remote: true, :class => 'text-white btn btn-primary' %></p>
   </div>
+  <div id='edit-profile'>
+
+  </div>
+  <div id='info'>
+
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-1">
+
+  </div>
+  <div class="col-3">
+    <%= image_tag(@profile.avatar_url, :class => 'rounded-circle') %>
+  </div>
+  <div class="col-1">
+
+  </div>
+  <div class="col-4 profile-body">
+    <h4 class="card-title"> Nickname: <strong><%= @profile.nickname %></strong>  </h4>
+    <p class="card-text"> Country: <strong><%= @profile.country %></strong> </p>
+  </div>
+  <div class="col-3 profile-body">
+    <p class="button nav-item"><%= link_to "show Profile",  profile_info_path(@profile.id), remote: true, :class => 'text-white btn btn-primary' %></p>
+    <p class="button nav-item"><%= link_to "Edit Profile",  edit_profile_path(@profile.id), remote: true, :class => 'text-white btn btn-primary' %></p>
+  </div>
+  <div id='edit-profile'></div>
+  <div id='info'></div>
 </div>

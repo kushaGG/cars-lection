@@ -7,18 +7,20 @@
       <li><%= link_to new_post_path, :class => 'nav-link' do %> Add new post
         <i class="fas fa-plus-square"></i>
       <% end %></li>
-      <li></li>
+      <li><%= link_to photos_path, :class => 'nav-link' do %>Gallery
+        <i class="fas fa-images"></i>
+      <% end %></li>
     </ul>
     <ul class="navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li class="nav-link">Logged in as  <strong><%= current_user.email %></strong></li>
+        <li class="nav-link">Logged in as <%= image_tag(current_user.profile.avatar_url, size: "24x24", :class => 'rounded-circle') %> <strong><%= current_user.email %></strong></li>
         <% if current_user.profile.nil? %>
           <%= link_to new_profile_path, :class => 'nav-link' do %> Create profile
             <i class="fas fa-users-cog"></i>
           <% end %>
         <% else %>
-          <%= link_to profile_path(current_user.profile), :class => 'nav-link' do %> Edit profile
-            <i class="fas fa-users-cog"></i>
+          <%= link_to profile_path(current_user.profile), :class => 'nav-link' do %> Profile
+            <i class="fas fa-user"></i>
           <% end %>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete, :class => 'nav-link' do %> Logout

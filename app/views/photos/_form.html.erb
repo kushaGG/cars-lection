@@ -1,0 +1,20 @@
+<%= form_with(model: photo, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
+    <%# <%= form.select :category_id , Category.all.collect {|p| [ p.title, p.id ]} %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+
+  <div class="actions">
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </div>
+<% end %>

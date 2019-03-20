@@ -1,0 +1,9 @@
+<% @photos.each do |photo| %>
+  <strong>Title: </strong><%= photo.title %> <br>
+  <strong>Category: </strong><%= Category.find_by(id: photo.category_id).try(:title) %> <br> <br>
+  <strong>Photos: </strong><br>
+  <% photo.images.each do | image | %>
+    <%= image_tag(image.url, size: "500x300")%>	<br> <br>
+  <% end %>
+  <br>
+<% end %>

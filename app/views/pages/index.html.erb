@@ -1,3 +1,4 @@
+<%= link_to "new photo",  new_photo_path %>
 <% @posts.each do |p| %>
   <div class="card ">
     <div class="card-header">
@@ -5,11 +6,12 @@
     </div>
     <div class="card-body">
       <p class="card-text"><%= raw p.body %></p>
-      <%= link_to "Read more", post_path(p.id), :class => 'btn btn-primary active stretched-link' %>
+      <%= link_to "Read more", post_path(p.id), :class => 'btn btn-primary active ' %>
     </div>
     <div class="card-footer text-white bg-secondary mb-3">
-      <p>Created by user: <strong><%= p.user.email.split('@').first %></strong> <br>
-         Created at <%= distance_of_time_in_words(p.created_at, Time.now) %> ago </p>
+      Created by user:  <%= image_tag(p.user.profile.avatar_url, size: "20x20", :class => 'rounded-circle')  %>
+       <strong><%= p.user.email.split('@').first %></strong> <br>
+      Created at <%= distance_of_time_in_words(p.created_at, Time.now) %> ago
     </div>
   </div>
 <% end %>
